@@ -5,6 +5,32 @@
 
 <div class="container-fluid">
   <div class="animated fadeIn">
+    <div class="row" style="margin-bottom: 30px">
+      <div class="col-md-3">
+        <div class="input-group">
+            <input class="form-control"
+                   type="date"
+                   ng-model="filters.since"
+                   style="width: 100%"
+            />
+          <span class="input-group-addon"><i class="fa fa-calendar fa-lg"></i></span>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="input-group">
+            <input class="form-control"
+                   type="date"
+                   ng-model="filters.to"
+                   style="width: 100%"/>
+          <span class="input-group-addon"><i class="fa fa-calendar fa-lg"></i></span>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <button class="btn btn-primary" ng-click="getDate(filters)">Filtruj</button>
+      </div>
+    </div>
 
     <card-simple type="primary"
           value="personAmount"

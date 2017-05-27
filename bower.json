@@ -7,6 +7,14 @@
     "angular-local-storage": "0.5.2",
     "simple-line-icons": "^2.4.1",
     "font-awesome": "^4.7.0",
-    "angular-chart.js": "^1.1.1"
+    "angular-chart.js": "^1.1.1",
+    "moment": "^2.18.1"
+  },
+  "overrides": {
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.min.css"
+      ]
+    }
   }
 }

@@ -2,12 +2,16 @@
   'use strict';
 
   angular.module('app.dashboard')
-    .controller('DashboardController', function($scope){
+    .controller('DashboardController', function(
+      $scope,
+      filters, getStatisticSex, dataSex
+    ){
+      $scope.filters      = filters;
       $scope.personAmount = 1075;
 
       $scope.sex = {
         labels: ["Kobieta", "Mężczyzna"],
-        data:   [300, 500],
+        data:   [dataSex.women, dataSex.men],
         colors: [ '#EF7474', '#3EAAE5' ]
       };
 
@@ -32,5 +36,14 @@
         data: [10, 20, 33, 22],
         colors: [ '#20a8d8', '#4dbd74', '#63c2de', '#f8cb00' ]
       };
+
+      $scope.getDate = getDate;
+
+      function getDate(filters){
+        getStatisticSex(filters)
+          .then(function(dataSex){
+            $scope.sex.data = [dataSex.women, dataSex.men];
+          })
+      }
     });
 }());

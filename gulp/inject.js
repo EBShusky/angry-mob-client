@@ -12,19 +12,7 @@ module.exports = function(options){
    */
   gulp.task('inject', function(){
     var wiredepOptions = {
-      directory: 'bower',
-      exclude: [/jquery/, /bootstrap-sass-official/],
-      overrides: {
-        'angular-count-to': {
-          main: ['./src/count-to.js']
-        },
-        'socket.io-client': {
-          main: ['./socket.io.js']
-        },
-        'font-awesome': {
-          main: ['./css/font-awesome.min.css']
-        }
-      }
+      directory: 'bower'
     };
 
     var injectScripts = gulp.src([
