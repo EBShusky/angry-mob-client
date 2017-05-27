@@ -3,14 +3,34 @@
 
   angular.module('app.dashboard')
     .controller('DashboardController', function($scope){
-      $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
-      $scope.series = ['Series A', 'Series B'];
-      $scope.data = [
-        [65, 59, 80, 81, 56, 55, 40],
-        [28, 48, 40, 19, 86, 27, 90]
-      ];
-      $scope.onClick = function (points, evt) {
-        console.log(points, evt);
+      $scope.personAmount = 1075;
+
+      $scope.sex = {
+        labels: ["Kobieta", "Mężczyzna"],
+        data:   [300, 500],
+        colors: [ '#EF7474', '#3EAAE5' ]
+      };
+
+      $scope.age = {
+        labels: [
+          '0 - 10',
+          '10 - 15',
+          '16 - 18',
+          '19 - 24'
+        ],
+        data: [10, 20, 33, 22],
+        colors: [ '#20a8d8', '#4dbd74', '#63c2de', '#f8cb00' ]
+      };
+
+      $scope.hours = {
+        labels: [
+          '8:00 - 9:00',
+          '9:00 - 10:00',
+          '10:00 - 11:00',
+          '11:00 - 12:00'
+        ],
+        data: [10, 20, 33, 22],
+        colors: [ '#20a8d8', '#4dbd74', '#63c2de', '#f8cb00' ]
       };
     });
 }());
