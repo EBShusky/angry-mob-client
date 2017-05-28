@@ -13,17 +13,26 @@
             filters:  function(){
               return {
                 since:  moment().subtract(7, 'days').toDate(),
-                to:     moment().toDate()
+                until:  moment().toDate()
               };
             },
+
             getStatisticSex: function(Statistic){
               return function(filters){
                 return Statistic.getSex(filters);
               }
             },
+            getStatisticAge: function(Statistic){
+              return function(filters){
+                return Statistic.getAge(filters);
+              }
+            },
 
             dataSex: function(filters, getStatisticSex){
               return getStatisticSex(filters);
+            },
+            dataAge: function(filters, getStatisticAge){
+              return getStatisticAge(filters);
             }
           }
         });
