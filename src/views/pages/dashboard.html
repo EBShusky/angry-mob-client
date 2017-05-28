@@ -36,14 +36,29 @@
           value="personAmount"
           desc="Liczba osób"></card-simple>
 
-    <card-block title="Płeć">
-      <canvas class="chart chart-pie"
-              chart-data="sex.data"
-              chart-labels="sex.labels"
-              chart-colors="sex.colors"
-              height="300px">
-      </canvas>
-    </card-block>
+    <div class="row">
+      <div class="col-md-6">
+        <card-block title="Płeć">
+          <canvas class="chart chart-pie"
+                  chart-data="sex.data"
+                  chart-labels="sex.labels"
+                  chart-colors="sex.colors"
+                  height="300px">
+          </canvas>
+        </card-block>
+      </div>
+
+      <div class="col-md-6">
+        <card-block title="Emocje">
+          <canvas class="chart chart-pie"
+                  chart-data="emotions.data"
+                  chart-labels="emotions.labels"
+                  chart-colors="emotions.colors"
+                  height="300px">
+          </canvas>
+        </card-block>
+      </div>
+    </div>
 
     <div class="row">
       <div class="col-md-12">

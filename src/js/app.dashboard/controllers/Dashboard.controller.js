@@ -9,6 +9,7 @@
         getStatisticSex, dataSex,
         getStatisticAge, dataAge,
         getStatisticHours, dataHours,
+        getStatisticEmotions, dataEmotions,
         getStatisticPeopleQuantity, dataPeopleQuantity
     ){
       $scope.filters      = filters;
@@ -18,6 +19,7 @@
       setSexData(dataSex);
       setAgeData(dataAge);
       setHoursData(dataHours);
+      setEmotionData(dataEmotions);
 
       /**
        *
@@ -42,6 +44,23 @@
         });
 
         $scope.age = {
+          labels: labels,
+          data: result,
+          colors: [ '#20a8d8', '#4dbd74', '#63c2de', '#f8cb00' ]
+        };
+      }
+
+      /**
+       *
+       * @param data
+       */
+      function setEmotionData(data){
+        var labels = Object.keys(data);
+        var result = labels.map(function(item){
+          return data[item];
+        });
+
+        $scope.emotions = {
           labels: labels,
           data: result,
           colors: [ '#20a8d8', '#4dbd74', '#63c2de', '#f8cb00' ]

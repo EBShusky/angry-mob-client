@@ -6,6 +6,11 @@
       var API_URL = 'http://192.168.1.130:8080';
 
       return {
+        /**
+         *
+         * @param filters
+         * @returns {*}
+         */
         getSex: function(filters){
           return $http({
             method: 'GET',
@@ -17,6 +22,11 @@
             });
         },
 
+        /**
+         *
+         * @param filters
+         * @returns {*}
+         */
         getAge: function(filters){
           return $http({
             method: 'GET',
@@ -33,20 +43,14 @@
          * @param filters
          */
         getHours: function(filters){
-          // return $http({
-          //   method: 'GET',
-          //   url:    API_URL + '/info/hoursSummary',
-          //   params: filters
-          // })
-          //   .then(function(res){
-          //     return res.data;
-          //   });
-
-          return $q.resolve({
-            '8': 12,
-            '12': 4,
-            '13': 5
-          });
+          return $http({
+            method: 'GET',
+            url:    API_URL + '/info/hoursSummary',
+            params: filters
+          })
+            .then(function(res){
+              return res.data;
+            });
         },
 
         /**
@@ -62,6 +66,21 @@
           })
             .then(function(res){
               return res.data.peopleQuantity;
+            });
+        },
+
+        /**
+         *
+         * @param filters
+         */
+        getEmotions: function(filters){
+          return $http({
+            method: 'GET',
+            url:    API_URL + '/info/emotionSummary',
+            params: filters
+          })
+            .then(function(res){
+              return res.data;
             });
         }
       }

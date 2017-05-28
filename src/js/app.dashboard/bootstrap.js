@@ -37,6 +37,11 @@
                 return Statistic.getPeopleQuantity(filters);
               }
             },
+            getStatisticEmotions: function(Statistic){
+              return function(filters){
+                return Statistic.getEmotions(filters);
+              }
+            },
 
             dataSex: function(filters, getStatisticSex){
               return getStatisticSex(filters);
@@ -49,6 +54,9 @@
             },
             dataPeopleQuantity: function(filters, getStatisticPeopleQuantity){
               return getStatisticPeopleQuantity(filters);
+            },
+            dataEmotions: function(filters, getStatisticEmotions){
+              return getStatisticEmotions(filters);
             }
           }
         });
