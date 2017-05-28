@@ -27,12 +27,28 @@
                 return Statistic.getAge(filters);
               }
             },
+            getStatisticHours: function(Statistic){
+              return function(filters){
+                return Statistic.getHours(filters);
+              }
+            },
+            getStatisticPeopleQuantity: function(Statistic){
+              return function(filters){
+                return Statistic.getPeopleQuantity(filters);
+              }
+            },
 
             dataSex: function(filters, getStatisticSex){
               return getStatisticSex(filters);
             },
             dataAge: function(filters, getStatisticAge){
               return getStatisticAge(filters);
+            },
+            dataHours: function(filters, getStatisticHours){
+              return getStatisticHours(filters);
+            },
+            dataPeopleQuantity: function(filters, getStatisticPeopleQuantity){
+              return getStatisticPeopleQuantity(filters);
             }
           }
         });

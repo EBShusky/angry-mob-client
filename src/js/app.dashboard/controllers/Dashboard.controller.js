@@ -4,26 +4,20 @@
   angular.module('app.dashboard')
     .controller('DashboardController', function(
       $scope,
-      filters, getStatisticSex, dataSex, getStatisticAge, dataAge
+      DataGrouper,
+      filters,
+        getStatisticSex, dataSex,
+        getStatisticAge, dataAge,
+        getStatisticHours, dataHours,
+        getStatisticPeopleQuantity, dataPeopleQuantity
     ){
       $scope.filters      = filters;
-      $scope.personAmount = 1075;
+      $scope.personAmount = dataPeopleQuantity;
+      $scope.getDate      = getDate;
 
       setSexData(dataSex);
-      setAgeData(dataSex);
-
-      $scope.hours = {
-        labels: [
-          '8:00 - 9:00',
-          '9:00 - 10:00',
-          '10:00 - 11:00',
-          '11:00 - 12:00'
-        ],
-        data: [10, 20, 33, 22],
-        colors: [ '#20a8d8', '#4dbd74', '#63c2de', '#f8cb00' ]
-      };
-
-      $scope.getDate = getDate;
+      setAgeData(dataAge);
+      setHoursData(dataHours);
 
       /**
        *
@@ -42,34 +36,56 @@
        * @param data
        */
       function setAgeData(data){
-        data = {
-          '0': 1,
-          '1': 2,
-          '2': 3,
-          '3': 4,
-          '4': 5,
-          '5': 6,
-          '6': 7,
-          '7': 0,
-          '8': 0,
-          '9': 10,
-          '10': 10
-        };
-        var range = [5, 10, 15, 18, 24, 30, 40, 50, 60, 100];
-        var actual = range[0];
-
-        // data.forEach(function(item, key){
-        //   if(item)
-        // });
+        var labels = Object.keys(data);
+        var result = labels.map(function(item){
+          return data[item];
+        });
 
         $scope.age = {
+          labels: labels,
+          data: result,
+          colors: [ '#20a8d8', '#4dbd74', '#63c2de', '#f8cb00' ]
+        };
+      }
+
+      /**
+       *
+       * @param data
+       */
+      function setHoursData(data){
+        var result = [];
+        for(var i = 0; i < 24; i++){
+          result[i] = data[i] || 0;
+        }
+
+        $scope.hours = {
           labels: [
-            '0 - 10',
-            '10 - 15',
-            '16 - 18',
-            '19 - 24'
+            '0:00 - 1:00',
+            '1:00 - 2:00',
+            '2:00 - 3:00',
+            '3:00 - 4:00',
+            '4:00 - 5:00',
+            '5:00 - 6:00',
+            '6:00 - 7:00',
+            '7:00 - 8:00',
+            '8:00 - 9:00',
+            '9:00 - 10:00',
+            '10:00 - 11:00',
+            '11:00 - 12:00',
+            '12:00 - 13:00',
+            '13:00 - 14:00',
+            '14:00 - 15:00',
+            '15:00 - 16:00',
+            '16:00 - 17:00',
+            '17:00 - 18:00',
+            '18:00 - 19:00',
+            '19:00 - 20:00',
+            '20:00 - 21:00',
+            '21:00 - 22:00',
+            '22:00 - 23:00',
+            '23:00 - 24:00'
           ],
-          data: [10, 20, 33, 22],
+          data: result,
           colors: [ '#20a8d8', '#4dbd74', '#63c2de', '#f8cb00' ]
         };
       }
@@ -84,6 +100,14 @@
 
         getStatisticAge(filters)
           .then(setAgeData);
+
+        getStatisticHours(filters)
+          .then(setHoursData);
+
+        getStatisticPeopleQuantity(filters)
+          .then(function(peopleQuantity){
+            $scope.personAmount = peopleQuantity;
+          })
       }
     });
 }());

@@ -36,8 +36,7 @@
           value="personAmount"
           desc="Liczba osób"></card-simple>
 
-    <card-block title="Płeć"
-                subtitle="Some text">
+    <card-block title="Płeć">
       <canvas class="chart chart-pie"
               chart-data="sex.data"
               chart-labels="sex.labels"
@@ -47,25 +46,24 @@
     </card-block>
 
     <div class="row">
-      <div class="col-md-6">
-        <card-block title="Wiek"
-                    subtitle="asd">
+      <div class="col-md-12">
+        <card-block title="Godziny">
           <canvas class="chart chart-bar"
-                  chart-data="age.data"
-                  chart-labels="age.labels"
-                  chart-colors="age.colors"
+                  chart-data="hours.data"
+                  chart-labels="hours.labels"
+                  chart-colors="hours.colors"
                   height="300px">
           </canvas>
         </card-block>
       </div>
 
-      <div class="col-md-6">
-        <card-block title="Godziny"
-                    subtitle="Foobar">
+      <div class="col-md-12">
+        <card-block title="Wiek"
+                    subtitle="Wiek jest średnią z przedziału min. max. który jest zwracany na podstawie zdjęcia">
           <canvas class="chart chart-bar"
-                  chart-data="hours.data"
-                  chart-labels="hours.labels"
-                  chart-colors="hours.colors"
+                  chart-data="age.data"
+                  chart-labels="age.labels"
+                  chart-colors="age.colors"
                   height="300px">
           </canvas>
         </card-block>

@@ -14,12 +14,7 @@
           })
             .then(function(res){
               return res.data;
-            })
-
-          // return $q.resolve({
-          //   Female: 3,
-          //   Male: 11
-          // });
+            });
         },
 
         getAge: function(filters){
@@ -30,7 +25,44 @@
           })
             .then(function(res){
               return res.data;
-            })
+            });
+        },
+
+        /**
+         *
+         * @param filters
+         */
+        getHours: function(filters){
+          // return $http({
+          //   method: 'GET',
+          //   url:    API_URL + '/info/hoursSummary',
+          //   params: filters
+          // })
+          //   .then(function(res){
+          //     return res.data;
+          //   });
+
+          return $q.resolve({
+            '8': 12,
+            '12': 4,
+            '13': 5
+          });
+        },
+
+        /**
+         * 
+         * @param filters
+         * @returns {*}
+         */
+        getPeopleQuantity: function(filters){
+          return $http({
+            method: 'GET',
+            url:    API_URL + '/info/peopleQuantity',
+            params: filters
+          })
+            .then(function(res){
+              return res.data.peopleQuantity;
+            });
         }
       }
     });
