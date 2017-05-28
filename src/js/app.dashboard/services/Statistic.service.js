@@ -50,7 +50,7 @@
         },
 
         /**
-         * 
+         *
          * @param filters
          * @returns {*}
          */
